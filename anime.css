@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(anime-all3.jpg); 
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: #ffffff;
+    text-align: center;
+}
+nav {
+    background-color: #111;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    height: 30px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #00bcd4; 
+}
+h1 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 48px;
+    color: #ffcc00;
+    text-shadow: 3px 3px 7px #000;
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    display: inline-block;
+    border-radius: 10px;
+}
+
+#quiz-section, #result-section {
+    margin: 30px auto;
+    padding: 30px;
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 20px;
+    box-shadow: 0 0 20px 5px #ffcc00;
+    border: 2px solid #ff5f5f;
+}
+
+#timer, #score {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    margin: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    text-shadow: 1px 1px 5px #000;
+}
+
+#question-container {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 15px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.design-1 {
+    background: linear-gradient(120deg, #ff5f5f, #ffcc00);
+    box-shadow: 0 0 15px 5px #ffcc00;
+}
+
+.design-2 {
+    background: linear-gradient(120deg, #80c5f3, #054df5);
+    box-shadow: 0 0 15px 5px #0099ff;
+}
+
+.design-3 {
+    background: linear-gradient(120deg, #151515, #f8fcfb);
+    box-shadow: 0 0 15px 5px #868383;
+}
+
+.design-4 {
+    background: linear-gradient(120deg, #ff6600, #cc3300);
+    box-shadow: 0 0 15px 5px #ff6600;
+}
+
+.design-5 {
+    background: linear-gradient(120deg, #02feee, #a3fbfb);
+    box-shadow: 0 0 15px 5px #02feee;
+}
+
+#question {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px #000;
+}
+
+#options button {
+    display: block;
+    margin: 10px auto;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff5f5f, #ffcc00);
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px #000;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#options button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px 5px #ffcc00;
+}
+
+#result-section h2 {
+    font-size: 36px;
+    color: #ff5f5f;
+    text-shadow: 2px 2px 8px #000;
+}
+
+#final-score {
+    font-size: 28px;
+    color: #ffcc00;
+    margin: 20px 0;
+}
+
+button {
+    font-family: 'Permanent Marker', cursive;
+}
+.restartQuiz{
+    font-family: 'Permanent Marker', cursive;
+    display: block;
+    margin: 10px auto;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff5f5f, #ffcc00);
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px #000;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.restartQuiz:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px 5px #ffcc00;
+}
