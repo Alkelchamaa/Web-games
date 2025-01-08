@@ -17,7 +17,14 @@ nav {
     background-color: #111;
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    height: 30px;
+    height: 40px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    cursor: pointer;
+    text-decoration: none;
+    padding-left: 10px;
+    border-radius: 5px;
+    
 }
 
 nav a {
@@ -27,6 +34,9 @@ nav a {
     font-size: 18px;
     font-weight: bold;
     transition: color 0.3s ease;
+    background: 50px;
+    margin-top: 8px;
+
 }
 
 nav a:hover {
