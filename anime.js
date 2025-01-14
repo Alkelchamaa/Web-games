@@ -1,3 +1,4 @@
+// The questions
 const questions = [
     { stage: 'easy', question: "This anime is about a boy who becomes the Pirate King.", options: ["Naruto", "One Piece", "Bleach", "Dragon Ball"], answer: "One Piece" },
     { stage: 'easy', question: "This anime features ninjas from the Hidden Leaf Village.", options: ["Naruto", "One Piece", "Bleach", "Dragon Ball"], answer: "Naruto" },
@@ -133,7 +134,8 @@ const questions = [
     { stage: 'hard', question: "In Vinland Saga, who is the historical figure Thorfinn is loosely based on?", options: ["Thorfinn Karlsefni", "Leif Erikson", "Canute the Great", "Egil Skallagrimsson"], answer: "Thorfinn Karlsefni" }
 ];
 
-let currentQuestionIndex = 0;
+// Declare necessary variables
+let currentQuestionIndex = 0; 
 let score = 0;
 let stage = "easy";
 let timer;
@@ -141,121 +143,119 @@ let timeLeft = 60;
 
 const designs = ["design-1", "design-2", "design-3", "design-4", "design-5"];
 
+// Initialize the quiz
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     stage = "easy";
-    loadStageQuestions();
+    loadStageQuestions(); // Load questions for the easy stage
 }
 
+// Load questions based on the current stage
 function loadStageQuestions() {
     const questionSet = questions
-        .filter(q => q.stage === stage)
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 5);
+        .filter(q => q.stage === stage) // Filter questions by stage
+        .sort(() => Math.random() - 0.5) // Shuffle questions
+        .slice(0, 5); // Get top 5 questions for the stage
     currentQuestionIndex = 0;
-    loadQuestion(questionSet);
+    loadQuestion(questionSet); // Load the first question
 }
 
+// Load a single question
 function loadQuestion(questionSet) {
     if (currentQuestionIndex >= questionSet.length) {
-        stageTransition();
+        stageTransition(); // Transition to the next stage if no more questions
         return;
     }
     const questionData = questionSet[currentQuestionIndex];
-    document.getElementById("question").textContent = questionData.question;
+    document.getElementById("question").textContent = questionData.question; // Display question
     const questionContainer = document.getElementById("question-container");
-    const randomDesign = designs[Math.floor(Math.random() * designs.length)];
-    questionContainer.className = `design ${randomDesign}`; 
+    const randomDesign = designs[Math.floor(Math.random() * designs.length)]; // Randomly choose a design
+    questionContainer.className = `design ${randomDesign}`; // Apply design class
 
     const optionsContainer = document.getElementById("options");
-    optionsContainer.innerHTML = ""; 
+    optionsContainer.innerHTML = ""; // Clear previous options
     questionData.options.forEach(option => {
         const button = document.createElement("button");
         button.textContent = option;
-        button.onclick = () => checkAnswer(option, questionSet); 
+        button.onclick = () => checkAnswer(option, questionSet); // Check answer when clicked
         optionsContainer.appendChild(button);
     });
 
-    timeLeft = 60; 
-    clearInterval(timer);
+    timeLeft = 60; // Reset timer
+    clearInterval(timer); 
     timer = setInterval(() => {
         timeLeft--;
-        document.getElementById("timer").textContent = `Time Left: ${timeLeft}s`;
-        if (timeLeft <= 0) timeOver(); 
+        document.getElementById("timer").textContent = `Time Left: ${timeLeft}s`; // Update timer
+        if (timeLeft <= 0) timeOver(); // Call timeOver function if time runs out
     }, 1000);
 }
 
+// Check the selected answer and proceed
 function checkAnswer(selected, questionSet) {
     const questionData = questionSet[currentQuestionIndex];
-    if (selected === questionData.answer) {
+    if (selected === questionData.answer) { // Correct answer
         score += 1000;
         document.getElementById("score").textContent = `Berries: ${score}`;
         currentQuestionIndex++;
-        loadQuestion(questionSet); 
-    } else {
-        gameOver();
+        loadQuestion(questionSet); // Load next question
+    } else { // Incorrect answer
+        gameOver(); // End the game if the answer is wrong
     }
 }
 
+// Transition to the next stage
 function stageTransition() {
     if (stage === "easy") {
         stage = "normal";
     } else if (stage === "normal") {
         stage = "hard";
     } else {
-        finishQuiz();
+        finishQuiz(); // End the quiz if all stages are completed
         return;
     }
-    loadStageQuestions();
+    loadStageQuestions(); // Load next stage questions
 }
 
-
-  
-
+// Handle the case when time runs out
 function timeOver() {
-    clearInterval(timer);
+    clearInterval(timer); // Stop the timer
     document.getElementById("final-score").textContent = `Time Over! You scored ${score} Berries!`;
-    score = 0; // Reset score after game over
+    score = 0; // Reset score
     document.getElementById("score").textContent = `Berries: ${score}`; 
-    document.getElementById("quiz-section").style.display = "none";
-    document.getElementById("result-section").style.display = "block";
+    document.getElementById("quiz-section").style.display = "none"; // Hide quiz section
+    document.getElementById("result-section").style.display = "block"; // Show result section
 }
 
-  
-
-
-
-
-
+// Handle the case when the game is over
 function gameOver() {
-    clearInterval(timer);
+    clearInterval(timer); // Stop the timer
     document.getElementById("final-score").textContent = `Game Over! You scored ${score} Berries!`;
-    score = 0; // Reset score after game over
-    document.getElementById("score").textContent = `Berries: ${score}`;
-    document.getElementById("quiz-section").style.display = "none";
-    document.getElementById("result-section").style.display = "block";
+    score = 0; // Reset score
+    document.getElementById("score").textContent = `Berries: ${score}`; 
+    document.getElementById("quiz-section").style.display = "none"; // Hide quiz section
+    document.getElementById("result-section").style.display = "block"; // Show result section
 }
 
+// Finish the quiz and display the result
 function finishQuiz() {
-    clearInterval(timer);
-    document.getElementById("quiz-section").style.display = "none";
-    document.getElementById("result-section").style.display = "block";
+    clearInterval(timer); // Stop the timer
+    document.getElementById("quiz-section").style.display = "none"; // Hide quiz section
+    document.getElementById("result-section").style.display = "block"; // Show result section
     document.getElementById("final-score").textContent = `You finished the quiz! You scored ${score} Berries! You Won!!!`;
 }
 
+// Restart the quiz
 function restartQuiz() {
     score = 0; 
     document.getElementById("score").textContent = `Berries: ${score}`;
-    document.getElementById("quiz-section").style.display = "block";
-    document.getElementById("result-section").style.display = "none";
-    timeLeft = 60; 
+    document.getElementById("quiz-section").style.display = "block"; // Show quiz section
+    document.getElementById("result-section").style.display = "none"; // Hide result section
+    timeLeft = 60; // Reset timer
     clearInterval(timer);
 
-
-
-    startQuiz();
+    startQuiz(); // Restart the quiz
 }
 
+// Initialize the quiz when the page loads
 window.onload = startQuiz;
-   

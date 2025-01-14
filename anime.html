@@ -7,31 +7,48 @@
     <link rel="stylesheet" href="anime.css">
 </head>
 <body>
+    <!-- Navigation bar -->
     <nav>
-        
         <a href="home.html">homepage</a>
         <a href="candy.html">candycrush</a>
         <a href="#">animequiz</a>
         <a href="xo.html">X/O</a>
-        
     </nav>
+
+    <!-- Main content container for the quiz -->
     <div class="back">
-    <div class="container">
-        <h1>Anime Quiz</h1>
-        <div id="quiz-section">
-            <div id="question-container" class="design">
-                <h2 id="question">Question will appear here</h2>
-                <div id="timer">Time Left: 60s</div>
-                <div id="score">Berries: 0</div>
-                <div id="options"></div>
+        <div class="container">
+            <!-- Quiz title -->
+            <h1>Anime Quiz</h1>
+
+            <!-- Quiz section where the question and options will appear -->
+            <div id="quiz-section">
+                <div id="question-container" class="design">
+                    <!-- Placeholder for the question -->
+                    <h2 id="question">Question will appear here</h2>
+
+                    <!-- Timer display -->
+                    <div id="timer">Time Left: 60s</div>
+
+                    <!-- Score display -->
+                    <div id="score">Berries: 0</div>
+
+                    <!-- Container for the answer options -->
+                    <div id="options"></div>
+                </div>
             </div>
         </div>
-    </div>
+
+        <!-- Result section, initially hidden, will show the result after the quiz ends -->
         <div id="result-section" style="display: none;">
+            <!-- Final score display -->
             <h2 id="final-score">Your result will appear here</h2>
-            <button onclick="restartQuiz() " class="restartQuiz">Restart Quiz</button>
+
+            <!-- Button to restart the quiz -->
+            <button onclick="restartQuiz()" class="restartQuiz">Restart Quiz</button>
         </div>
     </div>
+
     <script src="anime.js"></script>
 </body>
 </html>

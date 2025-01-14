@@ -1,11 +1,15 @@
+/* General Body Styling */
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background-image: url(home-background.jpg); 
+    background-image: url(home-background.jpg);
+    background-size: cover;
+    background-position: center;
     color: #fff;
     text-align: center;
 }
 
+/* Navigation Bar */
 nav {
     background-color: #111;
     padding: 15px;
@@ -13,13 +17,10 @@ nav {
     height: 40px;
     font-size: 1.25rem;
     font-weight: 800;
-    cursor: pointer;
-    text-decoration: none;
-    padding-left: 10px;
     border-radius: 5px;
-    
 }
 
+/* Navigation Links */
 nav a {
     color: #fff;
     text-decoration: none;
@@ -27,21 +28,20 @@ nav a {
     font-size: 18px;
     font-weight: bold;
     transition: color 0.3s ease;
-    background: 50px;
-    margin-top: 8px;
-
 }
 
 nav a:hover {
-    color: #e355f0; 
+    color: #e355f0;
 }
 
+/* Heading */
 h2 {
     margin-top: 50px;
     font-size: 32px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
+/* Buttons */
 button {
     margin-top: 20px;
     padding: 15px 30px;
@@ -60,12 +60,8 @@ button:hover {
     transform: scale(1.1);
 }
 
+/* Button Links */
 button a {
     text-decoration: none;
     color: inherit;
 }
-
-button a:hover {
-    text-decoration: none;
-}
-
